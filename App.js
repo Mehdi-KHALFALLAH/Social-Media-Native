@@ -4,8 +4,11 @@ import HomeScreen from "./screens/HomeScreen";
 import LoadingScreen from "./screens/LoadingScreens";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
-import * as firebase from "firebase";
 
+import firebase from "firebase/app";
+import "firebase/firestore";
+import "firebase/auth";
+import "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
