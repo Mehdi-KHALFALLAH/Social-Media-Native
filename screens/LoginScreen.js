@@ -26,14 +26,21 @@ export default class LoginScreen extends React.Component {
             
             <TextInput style={styles.input} autoCapitalize="none"></TextInput>
           </View>
-          <View>
+          <View >
             <View style={styles.form}>
             <Entypo name = "key" style ={styles.inputTitle}> Password</Entypo>
+            <View style = {styles.action}>
               <TextInput
+               placeholder="Your Password"
+               placeholderTextColor="#666666"
                 style={styles.input}
                 secureTextEntry
                 autoCapitalize="none"
+                
               ></TextInput>
+              
+              </View>
+
             </View>
           </View>
           <TouchableOpacity style={styles.buttonSignIn}>
@@ -123,4 +130,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  action: {
+    flexDirection: 'row',
+    marginTop: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f2f2f2',
+    paddingBottom: 5
+},
 });
