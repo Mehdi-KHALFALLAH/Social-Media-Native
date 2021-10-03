@@ -6,32 +6,48 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  
+  StatusBar
 } from "react-native";
-
+import * as Animatable from 'react-native-animatable';
 export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar backgroundColor='#009387' barStyle="light-content"/>
         <View style={styles.header}>
           <Text style={styles.greeting}> {`Hello again \n Welcome back`}</Text>
         </View>
         <View style={styles.errorMessage}>
           <Text>Error</Text>
         </View>
+        <Animatable.View 
+            animation="fadeInUpBig"
+            style={[styles.footer, ]}
+        >
+        
         <View style={styles.footer}>
           <View style={styles.form}>
           
           <Entypo name = "mail" style ={styles.inputTitle} > Email</Entypo>
             
-            <TextInput style={styles.input} autoCapitalize="none"></TextInput>
+          <TextInput
+              
+              
+              placeholderTextColor="#666666"
+               style={styles.input}
+               secureTextEntry
+               autoCapitalize="none"
+               
+               
+             ></TextInput>
           </View>
           <View >
             <View style={styles.form}>
             <Entypo name = "key" style ={styles.inputTitle}> Password</Entypo>
             <View style = {styles.action}>
               <TextInput
-               placeholder="Your Password"
+              
+               
                placeholderTextColor="#666666"
                 style={styles.input}
                 secureTextEntry
@@ -50,9 +66,11 @@ export default class LoginScreen extends React.Component {
             <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign up</Text>
           </TouchableOpacity>
         </View>
+        </Animatable.View>
       </View>
     );
   }
+  
 }
 
 const styles = StyleSheet.create({
@@ -62,7 +80,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 1,
-    justifyContent: "flex-start",
+    justifyContent: "flex-end",
     paddingHorizontal: 20,
     paddingBottom: 30,
   },
@@ -71,7 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    paddingHorizontal: 20,
+    
     paddingVertical: 30,
   },
   greeting: {
@@ -96,8 +114,11 @@ const styles = StyleSheet.create({
   },
   input: {
     color: "#8A8F9E",
-    fontSize: 10,
+    fontSize: 12,
+    
     textTransform: "uppercase",
+   
+    
   },
   inputTitle: {
     
