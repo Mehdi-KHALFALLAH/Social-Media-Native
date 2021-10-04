@@ -1,10 +1,17 @@
+import React from "react";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
+
 import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "./screens/HomeScreen";
 import LoadingScreen from "./screens/LoadingScreens";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
-
+import MessageScreen from "./screens/MessageScreen";
+import NotificationScreen from "./screens/NotificationScreen";
+import PostScreen from "./screens/PostScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import { createBottomTabNavigator } from "react-navigation-tabs";
+import { Ionicons } from "@expo/vector-icons";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
@@ -21,24 +28,31 @@ const firebaseConfig = {
   messagingSenderId: "321725060726",
   appId: "1:321725060726:web:bd4ac99ea66a115b42f157",
 };
-
+const AppTabNavigator = createBottomTabNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+      
+    },
+  }
+  
+);
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
-const AppStack = createStackNavigator({
-  Home: HomeScreen,
-});
 const AuthStack = createStackNavigator({
   Login: LoginScreen,
   Register: RegisterScreen,
 });
 export default createAppContainer(
-  createSwitchNavigator({
-    Loading: LoadingScreen,
-    App: AppStack,
-    Auth: AuthStack,
-  },
-  {
-initialRouteName:"Loading"
-  })
+  createSwitchNavigator(
+    {
+      Loading: LoadingScreen,
+      App: AppTabNavigator,
+      Auth: AuthStack,
+    },
+    {
+      initialRouteName: "Loading",
+    }
+  )
 );
